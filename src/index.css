@@ -1,96 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
+    /* Core Futuristic Palette */
+    --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222 47% 13%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 222 47% 18%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 222 47% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 350 89% 60%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 217 91% 60% / 0.2;
+    --input: 222 47% 18%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom Futuristic Tokens */
+    --neon-blue: 217 91% 60%;
+    --neon-blue-glow: 217 91% 60% / 0.5;
+    --neon-red: 350 89% 60%;
+    --neon-red-glow: 350 89% 60% / 0.5;
+    --cosmic-dark: 222 47% 11%;
+    --cosmic-deeper: 222 47% 6%;
+    --glass: 222 47% 20% / 0.3;
+    --glass-border: 217 91% 60% / 0.3;
+
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(222 47% 11%) 50%, hsl(222 47% 15%) 100%);
+    --gradient-neon: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(250 91% 60%) 100%);
+    --gradient-energy: linear-gradient(135deg, hsl(350 89% 60%) 0%, hsl(320 89% 60%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(222 47% 20% / 0.4) 0%, hsl(222 47% 15% / 0.2) 100%);
+    --gradient-hologram: linear-gradient(45deg, 
+      hsl(217 91% 60% / 0.1) 0%, 
+      hsl(280 91% 60% / 0.1) 25%, 
+      hsl(350 89% 60% / 0.1) 50%, 
+      hsl(217 91% 60% / 0.1) 75%, 
+      hsl(180 91% 60% / 0.1) 100%
+    );
+
+    /* Shadows & Glows */
+    --shadow-neon: 0 0 20px hsl(217 91% 60% / 0.4), 0 0 40px hsl(217 91% 60% / 0.2);
+    --shadow-neon-strong: 0 0 30px hsl(217 91% 60% / 0.6), 0 0 60px hsl(217 91% 60% / 0.3);
+    --shadow-card: 0 8px 32px hsl(222 47% 6% / 0.5);
+    --shadow-energy: 0 0 20px hsl(350 89% 60% / 0.4), 0 0 40px hsl(350 89% 60% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 222 47% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 91% 60% / 0.2;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -100,6 +84,202 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    @apply backdrop-blur-xl border border-glass-border;
+    background: var(--gradient-glass);
+  }
+
+  .glass-strong {
+    @apply backdrop-blur-2xl border border-glass-border;
+    background: linear-gradient(135deg, hsl(222 47% 20% / 0.6) 0%, hsl(222 47% 15% / 0.4) 100%);
+  }
+
+  /* Neon Effects */
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.8), 
+                 0 0 20px hsl(var(--neon-blue) / 0.6),
+                 0 0 40px hsl(var(--neon-blue) / 0.4);
+  }
+
+  .neon-text-red {
+    text-shadow: 0 0 10px hsl(var(--neon-red) / 0.8), 
+                 0 0 20px hsl(var(--neon-red) / 0.6),
+                 0 0 40px hsl(var(--neon-red) / 0.4);
+  }
+
+  .neon-border {
+    box-shadow: inset 0 0 20px hsl(var(--neon-blue) / 0.1),
+                0 0 20px hsl(var(--neon-blue) / 0.3);
+  }
+
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .neon-glow-strong {
+    box-shadow: var(--shadow-neon-strong);
+  }
+
+  /* Holographic Effect */
+  .hologram {
+    background: var(--gradient-hologram);
+    background-size: 400% 400%;
+    animation: hologram-shift 8s ease infinite;
+  }
+
+  /* Grid Pattern */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--neon-blue) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--neon-blue) / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .cyber-grid-animated {
+    background-image: 
+      linear-gradient(hsl(var(--neon-blue) / 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--neon-blue) / 0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-pulse 4s ease-in-out infinite;
+  }
+
+  /* Corner LEDs */
+  .corner-leds::before,
+  .corner-leds::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid hsl(var(--neon-blue));
+    box-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5);
+  }
+
+  .corner-leds::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .corner-leds::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+  }
+
+  /* Scan Line Effect */
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-blue)), transparent);
+    animation: scan-line 3s linear infinite;
+  }
+}
+
+@layer components {
+  .btn-neon {
+    @apply relative px-8 py-3 font-orbitron font-semibold uppercase tracking-wider;
+    @apply bg-primary text-primary-foreground;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-105;
+    box-shadow: var(--shadow-neon);
+  }
+
+  .btn-neon:hover {
+    box-shadow: var(--shadow-neon-strong);
+  }
+
+  .btn-glass {
+    @apply relative px-8 py-3 font-orbitron font-semibold uppercase tracking-wider;
+    @apply glass text-foreground;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-105 hover:border-primary;
+  }
+
+  .card-futuristic {
+    @apply relative glass rounded-xl p-6 overflow-hidden;
+    @apply transition-all duration-500 ease-out;
+    @apply hover:scale-[1.02] hover:neon-glow;
+  }
+
+  .input-futuristic {
+    @apply w-full px-4 py-3 bg-secondary/50 border border-glass-border rounded-lg;
+    @apply text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:border-primary focus:neon-glow;
+    @apply transition-all duration-300;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes hologram-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.4), 0 0 40px hsl(var(--neon-blue) / 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 30px hsl(var(--neon-blue) / 0.6), 0 0 60px hsl(var(--neon-blue) / 0.4);
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% { 
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { 
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes energy-line {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Font Classes */
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
 }
